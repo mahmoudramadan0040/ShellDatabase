@@ -5,9 +5,9 @@ function TableExist(){
     pwd
     while true 
     do
-        if [ -f "./databases/$DB_CURRENT/$dropTable.txt" ] ; then 
-            rm "./databases/$DB_CURRENT/$dropTable.txt"
-            rm "./databases/$DB_CURRENT/.$dropTable.txt"
+        if [ -f "./databases/$DB_CURRENT/$dropTable" ] ; then 
+            rm "./databases/$DB_CURRENT/$dropTable"
+            rm "./databases/$DB_CURRENT/.$dropTable"
             echo " table droped successfully ! "
             break;
         else
