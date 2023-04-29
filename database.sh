@@ -43,7 +43,7 @@ case $REPLY in
     ;;
 7)
     echo "+============================================+"
-    source './kernel/update.sh' 
+    source './kernel/updateTable.sh' 
     ;;
 8)
     echo "+============================================+"
