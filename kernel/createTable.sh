@@ -1,11 +1,18 @@
 #!/bin/bash
 
+# Function to create a new table
+create_table() {
 
-function createTable(){
+    echo "Enter table name:"
+    read tablename
 
+    # Check if the table file already exists
+    if [[ -f "${DB_ROOT_DIR}/${DB_CURRENT}/${tablename}" ]]; then
+        echo "Table already exists!"
+        return
+    fi
 
-
- echo "Enter column names separated by ':'"
+    echo "Enter column names separated by ':'"
     read columns
 
     echo "Enter column datatypes separated by ':' (int or float or string):"
@@ -49,17 +56,9 @@ function createTable(){
 
     touch "${DB_ROOT_DIR}/${DB_CURRENT}/${tablename}"
     echo "Table created successfully."
-
 }
 
-
-
-
-
-# ask the user about column number
-re='^[0-9]+$'
-# check if value is number
-createTable
+create_table
 
 
 # back to Table menu

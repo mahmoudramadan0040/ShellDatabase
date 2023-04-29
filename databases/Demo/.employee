@@ -1,0 +1,3 @@
+id:int:pk
+title:string
+description:string
