@@ -1,16 +1,5 @@
 #!/bin/bash
 
-check_table(){
-    echo "Enter table name:"
-    read tablename
-
-    # Check if the table exists
-    if [[  -f "./databases/$DB_CURRENT/$tablename" ]]; then
-        echo "Table is already exist!"
-        return 1
-    fi
-        re='^[^0-9][a-zA-Z0-9_]+$'
-}
 
 function createTable(){
 
@@ -67,8 +56,7 @@ function createTable(){
 
 # check if the value is not string empty
 check_table
-# check if the table is exists before or not
-TableExist
+
 # ask the user about column number
 re='^[0-9]+$'
 # check if value is number
