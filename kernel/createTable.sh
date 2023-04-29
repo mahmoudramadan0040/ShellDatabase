@@ -1,28 +1,21 @@
 #!/bin/bash
-function TableExist(){
 
-    while true 
-    do
-        if [ -f "./Databases/$TableName" ] ; then 
-            echo 'Error: The Table created before ! please use another name to create table '
-            printf "Enter the table name:"
-            read TableName 
-        else
-            break ;
-        fi
-        
-    done
+check_table(){
+    echo "Enter table name:"
+    read tablename
+
+    # Check if the table exists
+    if [[  -f "./databases/$DB_CURRENT/$tablename" ]]; then
+        echo "Table is already exist!"
+        return 1
+    fi
+        re='^[^0-9][a-zA-Z0-9_]+$'
 }
-function CheckTableName(){
-    re='^[^0-9][a-zA-Z0-9_]+$'
-    while [[ -z "$TableName" ]] || ! [[ $TableName =~ $re ]];
-    do 
-        echo "Error: Table name not valid !"
-        printf "Enter the table name:"
-        read TableName
-    done
-}
+
 function createTable(){
+
+
+
  echo "Enter column names separated by ':'"
     read columns
 
@@ -71,11 +64,9 @@ function createTable(){
 }
 
 
-# read from user table name 
-printf "Enter the table name:"
-read TableName
+
 # check if the value is not string empty
-CheckTableName
+check_table
 # check if the table is exists before or not
 TableExist
 # ask the user about column number
