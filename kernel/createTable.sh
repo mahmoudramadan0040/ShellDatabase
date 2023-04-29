@@ -54,8 +54,7 @@ function createTable(){
 
 
 
-# check if the value is not string empty
-check_table
+
 
 # ask the user about column number
 re='^[0-9]+$'
