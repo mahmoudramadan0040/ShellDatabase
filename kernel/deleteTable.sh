@@ -1,5 +1,4 @@
-#!/bin/bash 
-
+#!/bin/bash
 function TableExist(){
 
     while true 
@@ -87,12 +86,26 @@ read TableName
 TableExist
 deleteFromTable
 
+
+# echo "Enter the condition to delete rows (e.g. 'id=5' or 'name=\"John\"'):"
+# read condition
+# echo $colnames
+
+
+
+
+# echo $opt
+# echo "the number is $columnNumber"
+# echo "columen number is  $columnNumber"
+# echo "this is condition $condition"
+# get the type of operator 
+
 # get the value of condition 
 echo $columnNumber
 echo $value
 echo $opt
 # header=$(head -1 "databases/${DB_CURRENT}/${TableName}")
-result=$(awk -F":" '{ if($'$columnNumber''$opt''$value') print $0 }' databases/${DB_CURRENT}/${TableName})
+result=$(awk -F":" '{ if($'$columnNumber''$opt''$value') next; print }' databases/${DB_CURRENT}/${TableName})
 # echo $result > "databases/${DB_CURRENT}/${TableName}"
 
 echo $result
